@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    >
+
+    <ml.rishabhnayak.mpt.utils.Speedometer
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/speedometer"
+        android:background="#a8c8b2"
+        app:maxSpeed="200"/>
+
+    <ScrollView
+        android:layout_marginTop="200dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/d"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <android.support.design.widget.TextInputLayout
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:drawableLeft="@drawable/identity"
+                        android:id="@+id/d_id"
+                        android:drawablePadding="5dp"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Driver Id" />
+
+                </android.support.design.widget.TextInputLayout>
+                <TextView
+                    android:gravity="center"
+                    android:text="Or"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:id="@+id/scan"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="sans-serif-thin"
+                    android:text="QR Scan"
+                    android:background="@color/colorPrimary"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp">
+                </Button>
+            </LinearLayout>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card"
+                android:layout_below="@+id/d"
+                android:layout_marginTop="10dp"
+                app:cardElevation="3dp"
+                app:cardCornerRadius="2dp"
+                app:cardBackgroundColor="@color/white"
+                android:layout_marginBottom="0dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/message"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif"
+                    android:layout_margin="5dp"
+                    android:gravity="top|left"
+                    android:scrollbars="vertical"
+                    android:hint="In case of speeding or rush driving please complain here........"
+                    android:scrollIndicators="none"
+                    android:inputType="textMultiLine"
+                    android:background="@color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+
+            </android.support.v7.widget.CardView>
+
+            <Button
+                android:layout_below="@+id/card"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/submit"
+                android:fontFamily="sans-serif"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_margin="16dp"
+                android:text="submit"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp" />
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

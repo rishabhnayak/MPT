@@ -36,7 +36,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:text="Rishabh Nayak"
+
                 android:id="@+id/name"
                 android:drawablePadding="5dp"
                 android:textSize="15sp"
@@ -56,7 +56,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:text="9300533198"
+
                 android:id="@+id/mobile_no"
                 android:inputType="number"
                 android:drawablePadding="5dp"
@@ -96,7 +96,7 @@
              android:layout_height="wrap_content">
 
              <EditText
-                 android:text="1234"
+                 android:text=""
                  android:id="@+id/otp"
                  android:inputType="number"
                  android:drawablePadding="5dp"

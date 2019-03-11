@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "ml.rishabhnayak.mpt"
+        applicationId "ml.mobipilot.rating"
         minSdkVersion 21
         targetSdkVersion 27
         multiDexEnabled true
@@ -18,14 +18,25 @@ android {
         }
     }
 }
+repositories {
+    maven {
+        url 'http://dl.bintray.com/raphaelbussa/maven'
+    }
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation files('libs/graphview.jar')
     implementation 'com.android.support:design:27.1.1'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'rebus:permission-utils:1.0.2'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.mcxiaoke.volley:library:1.0.19'
+    implementation 'com.karumi:dexter:5.0.0'
+    implementation 'com.github.blikoon:QRCodeScanner:0.1.2'
+    implementation 'com.github.javiersantos:AppUpdater:2.7'
     implementation 'com.github.natiginfo:EasyFont:v1.0.6'
     implementation 'com.github.f0ris.sweetalert:library:1.5.1'
     implementation 'com.airbnb.android:lottie:2.6.1'

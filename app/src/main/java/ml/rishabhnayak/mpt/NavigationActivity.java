@@ -1,9 +1,9 @@
 package ml.rishabhnayak.mpt;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+
+import ml.rishabhnayak.mpt.activities.ActivityGps;
 import ml.rishabhnayak.mpt.menucards.ComplaintHistoryActivity;
 import ml.rishabhnayak.mpt.menucards.ComplintActivity;
 import ml.rishabhnayak.mpt.menucards.ReviewActivity;
@@ -23,6 +25,8 @@ import ml.rishabhnayak.mpt.menucards.TrackComplaintActivity;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,10 @@ public class NavigationActivity extends AppCompatActivity
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        editor = pref.edit();
+
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -69,14 +77,16 @@ public class NavigationActivity extends AppCompatActivity
         ((RelativeLayout)findViewById(R.id.trackcomplaint_card)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), TrackComplaintActivity.class));
+//                startActivity(new Intent(getApplicationContext(), TrackComplaintActivity.class));
+                Toast.makeText(NavigationActivity.this, "Coming Soon......", Toast.LENGTH_SHORT).show();
             }
         });
 
         ((RelativeLayout)findViewById(R.id.complainthistory_card)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), ComplaintHistoryActivity.class));
+//                startActivity(new Intent(getApplicationContext(), ComplaintHistoryActivity.class));
+                Toast.makeText(NavigationActivity.this, "Coming Soon......", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -87,7 +97,7 @@ public class NavigationActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            finish();
         }
     }
 
@@ -107,7 +117,14 @@ public class NavigationActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            editor.clear();
+            editor.commit();
+            finish();
+            startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             return true;
+        }
+        else if(id==R.id.overSpeed){
+            startActivity(new Intent(getApplicationContext(),ActivityGps.class));
         }
 
         return super.onOptionsItemSelected(item);
@@ -124,11 +141,19 @@ public class NavigationActivity extends AppCompatActivity
         } else if (id == R.id.complaint) {
             startActivity(new Intent(getApplicationContext(), ComplintActivity.class));
         } else if (id == R.id.track_complaint) {
-            startActivity(new Intent(getApplicationContext(), TrackComplaintActivity.class));
+//            startActivity(new Intent(getApplicationContext(), TrackComplaintActivity.class));
+            Toast.makeText(this, "Coming Soon.....", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.complaint_history) {
-            startActivity(new Intent(getApplicationContext(), ComplaintHistoryActivity.class));
-        } else if (id == R.id.nav_logout) {
-
+//            startActivity(new Intent(getApplicationContext(), ComplaintHistoryActivity.class));
+            Toast.makeText(this, "Coming Soon.....", Toast.LENGTH_SHORT).show();
+        }else if (id == R.id.nav_overspeed) {
+            startActivity(new Intent(getApplicationContext(), ActivityGps.class));
+        }
+        else if (id == R.id.nav_logout) {
+          editor.clear();
+          editor.commit();
+          finish();
+          startActivity(new Intent(getApplicationContext(),LoginActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
